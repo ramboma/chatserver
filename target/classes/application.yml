@@ -13,3 +13,7 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true

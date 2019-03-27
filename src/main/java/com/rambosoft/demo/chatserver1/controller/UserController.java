@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -20,6 +21,16 @@ public class UserController {
 
     @Autowired
     private UserRepository userRepository;
+    @RequestMapping(value="/login",method= RequestMethod.POST)
+   public Result<Integer> login(HttpServletResponse response,@RequestBody User user)
+   {
+       userRepository.save(user);
+       Result<Integer> result=new Result<Integer>();
+       result.setSuccess(true);
+       result.setDate(user.getId());
+       response.setHeader("token",user.getId().toString());
+       return result;
+   }
     @RequestMapping(value="/add",method= RequestMethod.POST)
    public Result addUser(@RequestBody User user)
    {

@@ -1,8 +1,7 @@
 package com.rambosoft.demo.chatserver1.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by rambo on 2019/3/24.
@@ -41,6 +40,16 @@ public class User {
         return age;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
     public void setAge(String age) {
         this.age = age;
     }
@@ -48,4 +57,6 @@ public class User {
 
     private String name;
     private String age;
+    private String password;
+
 }
